@@ -1,0 +1,2 @@
+# SquidReporter
+Home of SquidReporter
