@@ -3,6 +3,7 @@
 # Usage: python3 SquidReporter.py
 # Authors: Riskjuggler and son aka Steve and Louis
 # Source: https://github.com/Riskjuggler/SquidReporter
+# Version 1.0
 
 import time
 from datetime import datetime, timedelta
