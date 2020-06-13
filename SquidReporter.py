@@ -1,3 +1,9 @@
+# SquidReporter.py - A script to make reading Squid logs easier.
+# License: Creative Commons - See Source for more details.
+# Usage: python3 SquidReporter.py
+# Authors: Riskjuggler and son aka Steve and Louis
+# Source: https://github.com/Riskjuggler/SquidReporter
+
 import time
 from datetime import datetime, timedelta
 import pymongo
