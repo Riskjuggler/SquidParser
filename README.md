@@ -27,15 +27,15 @@ Minimum Software Requirements:
 
 You can find information on installing and configuring these requirements at the following:
 
-http://www.squid-cache.org/
-https://www.python.org/downloads/
+http://www.squid-cache.org/  
+https://www.python.org/downloads/  
 https://pypi.org/project/pymongo/
 
 Additional Install Notes:  
 
 You can find Squid as a pre-installed or free add-on package in several Open Source firewall builds.  Here are a few of my favorites.  The advantage of using Squid on these platforms is they come with easy to use instructions that can help you get the most out of Squid by adding on SquidGuard (http://www.squidguard.org/).
 
-https://www.pfsense.org/
+https://www.pfsense.org/  
 https://opnsense.org/
 
 ------------------------------------------------------------------------------------------------------------
