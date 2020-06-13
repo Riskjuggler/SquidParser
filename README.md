@@ -42,7 +42,7 @@ https://opnsense.org/
 
 Execution Steps
 
-Once you have all these installed, you can run the script by executing the following:
+Once you have all these installed, you can run the script by executing the following in the directory where you've downloaded the script:
 
 ```bash
 python3 ./SquidReporter.py
@@ -50,13 +50,15 @@ python3 ./SquidReporter.py
 
 Execution notes:
 
-The first time you run this it will ask you for information to save in the config file at:
+1. The first time you run this it will ask you for information to save in the config file at:
 
 ```bash
 <home>/.SquidReporter/squidreporter.conf
 ```
 
-Note:  I don't yet have this hardened to encrypt your MongoDB password so keep that file safe and consider excluding it from backups unless you are encrypting them!!
+2. You will need to have the log file on the same system as you are running SquidReporter.py.  Include the path when asked for the name of the file (e.g. access.log) if you didn't copy it to the same directory as SquidReporter.py.
+
+3.  Security Note!!!!!  I don't yet have this hardened to encrypt your MongoDB password so keep the config file safe.  You may want to consider excluding it from backups unless you are encrypting them!!
 
 ------------------------------------------------------------------------------------------------------------
 
