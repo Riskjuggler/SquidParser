@@ -116,12 +116,12 @@ class DBOperations:
                     timeDiff_arr.append(float(element["timeDiff"]))
                 timeDiff_arrsorted = sorted(timeDiff_arr)
                 timeDiff_arrsorted.pop()
+                print("")
                 print("Mean : " , statistics.mean(timeDiff_arrsorted))
                 print("Median : " , statistics.median(timeDiff_arrsorted))
                 print("Min : " , min(timeDiff_arrsorted))
                 print("Max : " , max(timeDiff_arrsorted))
                 print("----------------------------------------------")
-                print("Multimode :" + statistics.multimode(timeDiff_arr))  
                 
 # Define method to collect the name and location of a single file to be processed - DONE
 def GetLogFile():
@@ -178,9 +178,9 @@ def main():
     print("Let's analyze the database to help you guess the # of seconds between calls to identify each distinct source:")
     dboper.analyzeRange()
 
-    # Report if less than user provided value
-    value=float(input("Provide # of seconds to report : "))
+    # Report if less than user provided value for a specific IP
     ip_addr=input("Provide IP address to report : ")
+    value=float(input("Provide # of seconds to report : "))
     dboper.reportLessthantime(value, ip_addr)
 
 # Main execution
