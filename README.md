@@ -15,7 +15,7 @@ I checked out SquidAnalyzer (http://squidanalyzer.darold.net/) and found it usef
 
 This didn't save me time though.  I just wanted to know the main URLs that my kids had visited and when.
 
-Since I was learning Python, I decided to build what I needed as my first project to solve this.   (Hint: That is why you will likely not be impressed by my Object Oriented design since I haven't formally learned a new language since COBOL and Pascal.)
+Since I was learning Python, I decided to build what I needed to solve this as my first project.   (Hint: That is why you will likely not be impressed by my Object Oriented design since I haven't formally learned a new language since COBOL and Pascal.)
 
 ------------------------------------------------------------------------------------------------------------
 
