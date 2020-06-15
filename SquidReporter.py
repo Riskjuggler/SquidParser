@@ -68,12 +68,11 @@ class DBOperations:
         self.db = self.cluster[mongodbclustername]
         self.collection = self.db[mongodbcollection]
 
-    # Insert one post into MongoDB - DONE
+    # Insert one post into MongoDB
     def MongoInsertOne(self, post):
-        # Insert the post fed to the function
         self.collection.insert_one(post)
 
-    # Define method to iterate over lines using dict to identify parse column and string to identify time diff to update - NEEDS WORK
+    # Define method to iterate over lines using dict to identify parse column and string to identify time diff to update 
     def UpdateTimeDiff(self):
         # Find all the source IPs first - NEEDS WORK - See design bug about dual loops
         distinctList = self.collection.distinct("clientAddress")
@@ -84,7 +83,7 @@ class DBOperations:
                 timeStampCurrent = timestamp["logTime"]
                 timeDiff_var = measureTimeDiff(timeStampCurrent, timeStampPrevious)
                 record_data = {"timeDiff":timeDiff_var}
-                self.collection.update_one({"logTime" : timeStampCurrent}, {"$set":record_data})  # Test this once the post is right - NEEDS WORK
+                self.collection.update_one({"logTime" : timeStampCurrent}, {"$set":record_data})  
                 timeStampPrevious = timeStampCurrent
 
     # Define method to report entries who's timeDiff < passed value
@@ -105,6 +104,7 @@ class DBOperations:
                     callType = onetimeDiff["callType"]
                     print(logTime, ";", clientAddress, ";", resultCode, ";", siteUrl, ";", callType, ";", timeDiff_var)
 
+# Need to provide some statistical analysis of the timeDiff values to help the user decide
     def analyzeRange(self):
         distinctList = self.collection.distinct("clientAddress")
         for clientAddressInstance in distinctList:
@@ -121,7 +121,7 @@ class DBOperations:
                 print("Min : " , min(timeDiff_arrsorted))
                 print("Max : " , max(timeDiff_arrsorted))
                 print("----------------------------------------------")
-#                print("Multimode :" + statistics.multimode(timeDiff_arr))  # Needs to run on Python 3.8 for this to work
+                print("Multimode :" + statistics.multimode(timeDiff_arr))  
                 
 # Define method to collect the name and location of a single file to be processed - DONE
 def GetLogFile():
@@ -159,22 +159,31 @@ def ReadLog(filename, dboper):
             post = ParseSquidLine(arrayLine)
             dboper.MongoInsertOne(post)
 
-# Main code
+# Main Method
+def main():
+    dboper=DBOperations()
 
-dboper=DBOperations()
+    # Get file name from user and parse and then read log and put in DB - DONE
+    read = input("Have you loaded DB yet? (y/n) : ")
+    if read == "n":
+        ReadLog(GetLogFile(),dboper) # Done and working
+        # Identify time delta between logs by source IP
+        dboper.UpdateTimeDiff()
 
-# Get file name from user and parse and then read log and put in DB - DONE
-read = input("Have you loaded DB yet? (y/n) : ")
-if read == "n":
-    ReadLog(GetLogFile(),dboper) # Done and working
-    # Identify time delta between logs by source IP
-    dboper.UpdateTimeDiff()
+    # Do some statistics to help user decide what time diff to use in reporting
+    print("As you should know, websites have a main URL which often calls many other URLs behind the scenese.  It is up to you to tell")
+    print("me how to identify the difference between a main URL and it's related URLs.  This app is built on assumption that you")
+    print("will pause between one web page and another longer than the computer will typically pause when calling related URls.")
+    print("")
+    print("Let's analyze the database to help you guess the # of seconds between calls to identify each distinct source:")
+    dboper.analyzeRange()
 
-# Do some statistics to help decide what time diff to use in reporting
-print("Let's analyze the database to help guess the # of seconds to use per distinct source:")
-dboper.analyzeRange()
+    # Report if less than user provided value
+    value=float(input("Provide # of seconds to report : "))
+    ip_addr=input("Provide IP address to report : ")
+    dboper.reportLessthantime(value, ip_addr)
 
-# Report if less than user provided value
-value=float(input("Provide # of seconds to report : "))
-ip_addr=input("Provide IP address to report : ")
-dboper.reportLessthantime(value, ip_addr)
+# Main execution
+
+if __name__ == '__main__':
+    main()
