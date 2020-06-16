@@ -1,8 +1,4 @@
 # SquidParser
-Home of SquidParser
-=======
-# SquidReporter
-
 
 SquidParser was born from a need to be efficient as a father during the COVID-19 lockdown.  I had to travel up 2 flights of stairs to check in with my kids and I needed a better solution.  
 
