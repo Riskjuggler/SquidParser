@@ -1,4 +1,3 @@
-# SquidParser.py
 # SquidParser.py - A script to make reading Squid logs easier.
 # License: Creative Commons - See Source for more details.
 # Usage: python3 SquidParser.py
