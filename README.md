@@ -1,7 +1,7 @@
-# SquidReporter
-Home of SquidReporter
+# SquidParser
+Home of SquidParser
 
-SquidReporter was born from a need to be efficient as a father during the COVID-19 lockdown.  I had to travel up 2 flights of stairs to check in with my kids and I needed a better solution.  
+SquidParser was born from a need to be efficient as a father during the COVID-19 lockdown.  I had to travel up 2 flights of stairs to check in with my kids and I needed a better solution.  
 
 I was running a firewall at home with the Squid proxy enabled to block common adware, malware, and some categories (e.g. porn) so I started checking the logs to make sure they were spending their time doing the school assigned online work.
 
@@ -45,7 +45,7 @@ Execution Steps
 Once you have all these installed, you can run the script by executing the following in the directory where you've downloaded the script:
 
 ```bash
-python3 ./SquidReporter.py
+python3 ./SquidParser.py
 ```
 
 Execution notes:
@@ -53,10 +53,10 @@ Execution notes:
 1. The first time you run this it will ask you for information to save in the config file at:
 
 ```bash
-<home>/.SquidReporter/squidreporter.conf
+<home>/.SquidParser/squidparser.conf
 ```
 
-2. You will need to have the log file on the same system as you are running SquidReporter.py.  Include the path when asked for the name of the file (e.g. access.log) if you didn't copy it to the same directory as SquidReporter.py.
+2. You will need to have the log file on the same system as you are running SquidParser.py.  Include the path when asked for the name of the file (e.g. access.log) if you didn't copy it to the same directory as SquidParser.py.
 
 3.  Security Note!!!!!  I don't yet have this hardened to encrypt your MongoDB password so keep the config file safe.  You may want to consider excluding it from backups unless you are encrypting them!!
 
