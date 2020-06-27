@@ -3,7 +3,7 @@
 # Usage: python3 SquidParser.py
 # Authors: Riskjuggler and son aka Steve and Louis
 # Source: https://github.com/Riskjuggler/SquidParser
-# Version 1.1
+# Version 1.0
 
 import time
 from datetime import datetime, timedelta
@@ -18,11 +18,11 @@ from array import *
 class DBOperations:
 
     def __init__(self):
-        homeDir = expanduser("~")
-        configFile = homeDir + "/.SquidParser/squidparser.conf"
-        if os.path.exists(configFile):    
-            print("It appears you've run SquidParser before.")
-            continuerun = input("Have you changed any of the database information? (y or n) : ")  # Need to be sure we can rely on previous info
+        # homeDir = expanduser("~")
+        # configFile = homeDir + "/.SquidParser/squidparser.conf"
+        # if os.path.exists(configFile):    
+        #     print("It appears you've run SquidParser before.")
+        #     continuerun = input("Have you changed any of the database information? (y or n) : ")  # Need to be sure we can rely on previous info
             if continuerun == 'y':
                 print ("Edit " + homeDir + "/SquidParser.conf to make changes using your favorite text editor.  Then re-start SquidParser.py")
                 exit()
