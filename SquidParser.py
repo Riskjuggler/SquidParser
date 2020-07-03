@@ -3,7 +3,7 @@
 # Usage: python3 SquidParser.py
 # Authors: Riskjuggler and son aka Steve and Louis
 # Source: https://github.com/Riskjuggler/SquidParser
-# Version 1.1
+# Version 1.0
 
 import time
 from datetime import datetime, timedelta
